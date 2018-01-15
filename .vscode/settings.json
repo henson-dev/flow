@@ -1,3 +1,4 @@
 {
+    "eslint.packageManager": "yarn",
     "files.eol": "\n"
 }
