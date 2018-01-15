@@ -1,7 +1,7 @@
 {
     "name": "henson-flow",
     "version": "1.0.0",
-    "description": "my own personal dumpster fire of functions (it keeps me warm)",
+    "description": "dumpster fire of functions I use often / often use :poop:",
     "repository": {
         "type": "git",
         "url": "https://github.com/henson-dev/flow"
@@ -16,6 +16,7 @@
     "devDependencies": {
         "ava": "^0.24.0",
         "eslint": "^4.15.0",
+        "eslint-config-google": "^0.9.1",
         "flow-bin": "^0.63.1"
     }
 }

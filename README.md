@@ -19,6 +19,7 @@ git clone https://github.com/henson-dev/flow.git henson-flow
 Change directories and run tests:
 ```bash
 cd ./henson-flow
+yarn install
 yarn test
 ```
 
@@ -27,14 +28,16 @@ yarn test
 const hf = require('henson-flow');
 const assert = require('assert');
 
-let notFlat = [{
+let notFlat = [
+    {
         id: 0, 
         res: [1, 2, 3]
     }, 
     {
         id: 1, 
         res: [2, 4, 5]
-}];
+    }
+];
 
 assert.equal(
     [1, 2, 3, 2, 4, 5], 
