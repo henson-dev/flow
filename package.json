@@ -1,0 +1,17 @@
+{
+    "name": "henson-flow",
+    "version": "1.0.0",
+    "description": "",
+    "main": "henson-flow.js",
+    "scripts": {
+        "test": "yarn run eslint --fix *.js && yarn run flow && yarn run ava"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "ava": "^0.24.0",
+        "eslint": "^4.15.0",
+        "flow-bin": "^0.63.1"
+    }
+}
