@@ -1,13 +1,17 @@
 {
     "name": "henson-flow",
     "version": "1.0.0",
-    "description": "",
+    "description": "my own personal dumpster fire of functions (it keeps me warm)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/henson-dev/flow"
+    },
     "main": "henson-flow.js",
     "scripts": {
         "test": "yarn run eslint --fix *.js && yarn run flow && yarn run ava"
     },
     "keywords": [],
-    "author": "",
+    "author": "henson-dev",
     "license": "ISC",
     "devDependencies": {
         "ava": "^0.24.0",
