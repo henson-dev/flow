@@ -44,7 +44,7 @@ module.exports.colToCaml = colToCaml;
  * Converts text like spridenId to text like SPRIDEN_ID
  *
  * @param {*} camelName - Text to convert
- * @return {Promise<string>} column formatted text
+ * @return {string} column formatted text
  */
 function camlToCol(camelName) {
     try {
