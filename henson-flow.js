@@ -24,6 +24,38 @@ module.exports.def = def;
 const nvl = (test, dflt) => (def(test)) ? test : dflt;
 module.exports.nvl = nvl;
 
+/**
+ * Converts text like SPRIDEN_ID to text like spridenId
+ *
+ * @param {string} columnName - Text to convert
+ * @return {string} camelCase text
+ */
+function colToCaml(columnName) {
+    try {
+        assert.equal(typeof columnName, 'string', 'column name should be string type');
+    } catch (err) {
+        return updErrArg(err);
+    }
+    return columnName.toLowerCase( ).replace(/_([a-z])/g, (string, match) => match.toUpperCase( ));
+}
+module.exports.colToCaml = colToCaml;
+
+/**
+ * Converts text like spridenId to text like SPRIDEN_ID
+ *
+ * @param {*} camelName - Text to convert
+ * @return {Promise<string>} column formatted text
+ */
+function camlToCol(camelName) {
+    try {
+        assert.equal(typeof colToCaml, 'string', 'camelName should be of string type');
+    } catch (err) {
+        return updErrArg(err);
+    }
+    return camelName.replace(/([A-Z])/g, (string, match) => `_${match}`).toUpperCase( );
+}
+module.exports.camlToCol = camlToCol;
+
 
 //
 // WARNING: From here on, it's promises "..all the way down"
@@ -135,39 +167,3 @@ function updErrArg(err) {
     return Promise.reject(err);
 }
 module.exports.updErrArg = updErrArg;
-
-/**
- * Converts text like SPRIDEN_ID to text like spridenId
- *
- * @param {string} columnName - Text to convert
- * @return {Promise<string>} camelCase text
- */
-function colToCaml(columnName) {
-    try {
-        assert.equal(typeof columnName, 'string', 'column name should be string type');
-    } catch (err) {
-        return updErrArg(err);
-    }
-    return Promise.resolve(columnName.toLowerCase( )
-        .replace(/_([a-z])/g, (string, match) => match.toUpperCase( )));
-}
-module.exports.colToCaml = colToCaml;
-
-/**
- * Converts text like spriden_id to text like SPRIDEN_ID
- *
- * @param {*} camelName - Text to convert
- * @return {Promise<string>} column formatted text
- */
-function camlToCol(camelName) {
-    try {
-        assert.equal(typeof colToCaml, 'string', 'camelName should be of string type');
-    } catch (err) {
-        return updErrArg(err);
-    }
-
-    return Promise.resolve(
-        camelName.replace(/([A-Z])/g, (string, match) => `_${match}`).toUpperCase( )
-    );
-}
-module.exports.camlToCol = camlToCol;
